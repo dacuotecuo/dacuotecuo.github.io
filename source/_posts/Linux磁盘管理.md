@@ -6,6 +6,9 @@ tags:
 - 磁盘管理
 categories:
 - Linux
+toc: true
 ---
 
 ## 一切皆是文件
+## 文件类型
+### 普通文件(-)
