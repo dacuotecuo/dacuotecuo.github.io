@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="zh">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
 <title>Linux磁盘管理</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Windows文件和Linux文件系统的区别============================ aaaa    Left Center Right    aaa bbb ccc   ddd eee fff   文件类型普通文件(-)">
+    <meta name="description" content="和window对比和window系统的文件系统作对比，有如下一些不同之处| 序号 | 比较内容 | Windows | Linux | Uninx || 1 | 盘符结构 | 有 | 无 | 无 || 2 | 大小写区分 | 是 | 否 | 是 || 3 | 目录层级符号 | 反斜线\ | 斜线/ | 斜线/ || 4 | 文件占用时是否可以修改 | 否 | 是 | 是 | 文件类型普通文件(-)">
 <meta name="keywords" content="Linux,磁盘管理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux磁盘管理">
 <meta property="og:url" content="https://www.jeffeliu.top/2019/06/06/Linux磁盘管理/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="Windows文件和Linux文件系统的区别============================ aaaa    Left Center Right    aaa bbb ccc   ddd eee fff   文件类型普通文件(-)">
+<meta property="og:description" content="和window对比和window系统的文件系统作对比，有如下一些不同之处| 序号 | 比较内容 | Windows | Linux | Uninx || 1 | 盘符结构 | 有 | 无 | 无 || 2 | 大小写区分 | 是 | 否 | 是 || 3 | 目录层级符号 | 反斜线\ | 斜线/ | 斜线/ || 4 | 文件占用时是否可以修改 | 否 | 是 | 是 | 文件类型普通文件(-)">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.jeffeliu.top/images/og_image.png">
-<meta property="og:updated_time" content="2019-06-06T10:24:06.854Z">
+<meta property="og:updated_time" content="2019-06-17T09:02:16.901Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux磁盘管理">
-<meta name="twitter:description" content="Windows文件和Linux文件系统的区别============================ aaaa    Left Center Right    aaa bbb ccc   ddd eee fff   文件类型普通文件(-)">
+<meta name="twitter:description" content="和window对比和window系统的文件系统作对比，有如下一些不同之处| 序号 | 比较内容 | Windows | Linux | Uninx || 1 | 盘符结构 | 有 | 无 | 无 || 2 | 大小写区分 | 是 | 否 | 是 || 3 | 目录层级符号 | 反斜线\ | 斜线/ | 斜线/ || 4 | 文件占用时是否可以修改 | 否 | 是 | 是 | 文件类型普通文件(-)">
 <meta name="twitter:image" content="https://www.jeffeliu.top/images/og_image.png">
 
 
@@ -28,7 +28,7 @@
 
 
 
-<link rel="icon" href="/images/logo.jpeg">
+<link rel="icon" href="/images/favicon.svg">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
@@ -94,7 +94,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                jeffeliu
+                <img src="/images/logo.svg" alt="Linux磁盘管理" height="28">
             
             </a>
         </div>
@@ -102,17 +102,28 @@
             
             <div class="navbar-start">
                 
-                <a class="navbar-item" href="/">首页</a>
+                <a class="navbar-item" href="/">Home</a>
                 
-                <a class="navbar-item" href="/archives">档案</a>
+                <a class="navbar-item" href="/archives">Archives</a>
                 
-                <a class="navbar-item" href="/categories">分类</a>
+                <a class="navbar-item" href="/categories">Categories</a>
                 
-                <a class="navbar-item" href="/tags">标签</a>
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+                <a class="navbar-item" href="/about">About</a>
                 
             </div>
             
             <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
                 
                 
                 <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
@@ -148,7 +159,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    几秒 读完 (大约 30 个字)
+                    几秒 读完 (大约 85 个字)
                 </span>
                 
                 
@@ -161,27 +172,7 @@
             
         </h1>
         <div class="content">
-            <h4 id="Windows文件和Linux文件系统的区别"><a href="#Windows文件和Linux文件系统的区别" class="headerlink" title="Windows文件和Linux文件系统的区别"></a>Windows文件和Linux文件系统的区别</h4><p>============================</p>
-<h5 id="aaaa"><a href="#aaaa" class="headerlink" title="aaaa"></a>aaaa</h5><hr>
-<table>
-<thead>
-<tr>
-<th align="left">Left</th>
-<th align="center">Center</th>
-<th align="right">Right</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">aaa</td>
-<td align="center">bbb</td>
-<td align="right">ccc</td>
-</tr>
-<tr>
-<td align="left">ddd</td>
-<td align="center">eee</td>
-<td align="right">fff</td>
-</tr>
-</tbody></table>
+            <h2 id="和window对比"><a href="#和window对比" class="headerlink" title="和window对比"></a>和window对比</h2><p>和window系统的文件系统作对比，有如下一些不同之处<br>| 序号 | 比较内容 | Windows | Linux | Uninx |<br>| 1 | 盘符结构 | 有 | 无 | 无 |<br>| 2 | 大小写区分 | 是 | 否 | 是 |<br>| 3 | 目录层级符号 | 反斜线\ | 斜线/ | 斜线/ |<br>| 4 | 文件占用时是否可以修改 | 否 | 是 | 是 |</p>
 <h2 id="文件类型"><a href="#文件类型" class="headerlink" title="文件类型"></a>文件类型</h2><h3 id="普通文件"><a href="#普通文件" class="headerlink" title="普通文件(-)"></a>普通文件(-)</h3>
         </div>
         
@@ -207,38 +198,28 @@
         <div class="buttons is-centered">
             
                 
-<a class="button is-info donate">
-    <span class="icon is-small">
-        <i class="fab fa-alipay"></i>
-    </span>
-    <span>支付宝</span>
-    <div class="qrcode"><img src="/images/pay/alipay.png" alt="支付宝"></div>
-</a>
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
 
                 
                 
-<a class="button is-success donate">
-    <span class="icon is-small">
-        <i class="fab fa-weixin"></i>
-    </span>
-    <span>微信</span>
-    <div class="qrcode"><img src="/images/pay/wxpay.png" alt="微信"></div>
-</a>
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
 
                 
                 <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
 
-<a class="button is-warning donate" onclick="document.getElementById(&#39;paypal-donate-form&#39;).submit()">
-    <span class="icon is-small">
-        <i class="fab fa-paypal"></i>
-    </span>
-    <span>Paypal</span>
-</a>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="paypal-donate-form">
-    <input type="hidden" name="cmd" value="_donations">
-    <input type="hidden" name="business" value="xiaoniu909@126.com">
-    <input type="hidden" name="currency_code" value="USD">
-</form>
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
 
                 
         </div>
@@ -263,20 +244,22 @@
             <div class="level-item has-text-centered">
                 <div>
                     
-                        <figure class="image is-128x128 has-mb-6">
-                            <img class="is-rounded" src="/images/avatar/1.jpeg" alt="jeffeliu">
-                        </figure>
+                        <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="Your name">
                     
                     
                     <p class="is-size-4 is-block">
-                        jeffeliu
+                        Your name
                     </p>
                     
+                    
+                    <p class="is-size-6 is-block">
+                        Your title
+                    </p>
                     
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
                         <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>湖北武汉</span>
+                        <span>Your location</span>
                     </p>
                     
                 </div>
@@ -315,13 +298,111 @@
             </div>
         </nav>
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/dacuotecuo" target="_blank">
+            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank">
                 关注我</a>
         </div>
         
         
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/ppoffice">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="https://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="https://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Dribbble" href="https://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
     </div>
 </div>
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#和window对比">
+        <span class="has-mr-6">1</span>
+        <span>和window对比</span>
+        </a></li><li>
+        <a class="is-flex" href="#文件类型">
+        <span class="has-mr-6">2</span>
+        <span>文件类型</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#普通文件">
+        <span class="has-mr-6">2.1</span>
+        <span>普通文件(-)</span>
+        </a></li></ul></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://hexo.io" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Hexo</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">hexo.io</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/ppoffice" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">PPOffice</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
     
         
 <div class="card widget">
@@ -345,33 +426,19 @@
     </div>
 </div>
     
-    
-        <div class="column-right-shadow is-hidden-widescreen ">
         
-            
-<div class="card widget" id="toc">
+<div class="card widget">
     <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                目录
-            </h3>
-            <ul class="menu-list"><ul class="menu-list"><ul class="menu-list"><li>
-        <a class="is-flex" href="#Windows文件和Linux文件系统的区别">
-        <span class="has-mr-6">1.1.1</span>
-        <span>Windows文件和Linux文件系统的区别</span>
-        </a></li></ul></ul><li>
-        <a class="is-flex" href="#文件类型">
-        <span class="has-mr-6">2</span>
-        <span>文件类型</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#普通文件">
-        <span class="has-mr-6">2.1</span>
-        <span>普通文件(-)</span>
-        </a></li></ul></li></ul>
-        </div>
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/磁盘管理/" style="font-size: 10px;">磁盘管理</a>
     </div>
 </div>
 
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
         
             
 <div class="card widget">
@@ -466,31 +533,6 @@
 <div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
     
         
-<div class="card widget" id="toc">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                目录
-            </h3>
-            <ul class="menu-list"><ul class="menu-list"><ul class="menu-list"><li>
-        <a class="is-flex" href="#Windows文件和Linux文件系统的区别">
-        <span class="has-mr-6">1.1.1</span>
-        <span>Windows文件和Linux文件系统的区别</span>
-        </a></li></ul></ul><li>
-        <a class="is-flex" href="#文件类型">
-        <span class="has-mr-6">2</span>
-        <span>文件类型</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#普通文件">
-        <span class="has-mr-6">2.1</span>
-        <span>普通文件(-)</span>
-        </a></li></ul></li></ul>
-        </div>
-    </div>
-</div>
-
-    
-        
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
@@ -583,7 +625,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    jeffeliu
+                    <img src="/images/logo.svg" alt="Linux磁盘管理" height="28">
                 
                 </a>
                 <p class="is-size-7">
@@ -593,6 +635,35 @@
                 </p>
             </div>
             <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
             
             </div>
         </div>
