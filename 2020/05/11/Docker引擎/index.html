@@ -13,7 +13,7 @@
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
-  <link rel="shortcut icon" href="/images/logo.jpeg" />
+  <link rel="shortcut icon" href="/images/avatar/1.jpeg" />
   
   
 <link rel="stylesheet" href="/dist/main.css">
@@ -69,7 +69,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">122</span>
+            <span class="post-count">137</span>
         </span>
     </span>
 
@@ -103,12 +103,13 @@
       
 
       
-      <h1 id="组成部分："><a href="#组成部分：" class="headerlink" title="组成部分："></a>组成部分：</h1><ol>
-<li>Docker Client Docker客户端程序</li>
-<li>Docker Daemon Docker守护进程（何为守护进程？即一种在多任务的电脑操作系统中，在后台执行的程序，其运行不受终端控制，例如网络服务进程）</li>
-<li>containerd containerd的主要任务是容器的生命周期管理，比如start、stop、pause、rm等。</li>
-<li>runc runc生来只有个一个作用—-创建容器，实际上它就是一个独立的容器运行时工具。</li>
+      <h3 id="Docker引擎的组成部分："><a href="#Docker引擎的组成部分：" class="headerlink" title="Docker引擎的组成部分："></a>Docker引擎的组成部分：</h3><ol>
+<li><strong>Docker Client</strong>，即Docker客户端程序，包含常用的客户端命令。</li>
+<li><strong>Docker Daemon</strong>，Docker守护进程（何为守护进程？即一种在多任务的电脑操作系统中，在后台执行的程序，其运行不受终端控制，例如网络服务进程）。</li>
+<li><strong>containerd</strong>，containerd的主要任务是容器的生命周期管理，比如start、stop、pause、rm等。</li>
+<li><strong>runc</strong>，runc生来只有个一个作用—-创建容器，实际上它就是一个独立的容器运行时工具。</li>
 </ol>
+<p><img src="/images/docker/docker1.png" alt="引擎框架" title="引擎框架"></p>
 
       
       <!-- reward -->
@@ -191,16 +192,6 @@
 
   
   
-  <nav class="article-nav">
-    
-    
-      <a href="/2019/06/06/Linux%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/" class="article-nav-link">
-        <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Linux磁盘管理</div>
-      </a>
-    
-  </nav>
-
 
   
 
@@ -331,7 +322,7 @@
 <nav class="navbar">
   
   <div class="logo">
-    <a href="/"><img src="/images/logo.jpeg" alt="飞享时光"></a>
+    <a href="/"><img src="/images/avatar/1.jpeg" alt="飞享时光"></a>
   </div>
   
   <ul class="nav nav-main">
@@ -392,13 +383,13 @@
   <div class="reward-box">
     
     <div class="reward-item">
-      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg">
+      <img class="reward-img" src="/images/pay/alipay.png">
       <span class="reward-type">支付宝</span>
     </div>
     
     
     <div class="reward-item">
-      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/wechat.jpg">
+      <img class="reward-img" src="/images/pay/wxpay.png">
       <span class="reward-type">微信</span>
     </div>
     
@@ -573,67 +564,12 @@
 
 <script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
 
+  
+<script src="/js/clickLove.js"></script>
+
+
 
 <!-- 复制 -->
-
-  
-<link rel="stylesheet" href="/css/clipboard.css">
-
-  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
-<script>
-  function wait(callback, seconds) {
-    var timelag = null;
-    timelag = window.setTimeout(callback, seconds);
-  }
-  !function (e, t, a) {
-    var initCopyCode = function(){
-      var copyHtml = '';
-      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
-      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
-      copyHtml += '</button>';
-      $(".highlight .code pre").before(copyHtml);
-      $(".article pre code").before(copyHtml);
-      var clipboard = new ClipboardJS('.btn-copy', {
-        target: function(trigger) {
-          return trigger.nextElementSibling;
-        }
-      });
-      clipboard.on('success', function(e) {
-        let $btn = $(e.trigger);
-        $btn.addClass('copied');
-        let $icon = $($btn.find('i'));
-        $icon.removeClass('ri-file-copy-2-line');
-        $icon.addClass('ri-checkbox-circle-line');
-        let $span = $($btn.find('span'));
-        $span[0].innerText = 'COPIED';
-        
-        wait(function () { // 等待两秒钟后恢复
-          $icon.removeClass('ri-checkbox-circle-line');
-          $icon.addClass('ri-file-copy-2-line');
-          $span[0].innerText = 'COPY';
-        }, 2000);
-      });
-      clipboard.on('error', function(e) {
-        e.clearSelection();
-        let $btn = $(e.trigger);
-        $btn.addClass('copy-failed');
-        let $icon = $($btn.find('i'));
-        $icon.removeClass('ri-file-copy-2-line');
-        $icon.addClass('ri-time-line');
-        let $span = $($btn.find('span'));
-        $span[0].innerText = 'COPY FAILED';
-        
-        wait(function () { // 等待两秒钟后恢复
-          $icon.removeClass('ri-time-line');
-          $icon.addClass('ri-file-copy-2-line');
-          $span[0].innerText = 'COPY';
-        }, 2000);
-      });
-    }
-    initCopyCode();
-  }(window, document);
-</script>
-
 
 
 
