@@ -69,7 +69,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">137</span>
+            <span class="post-count">642</span>
         </span>
     </span>
 
@@ -78,7 +78,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">2 分钟</span>
         </span>
     </span>
 </div>
@@ -105,11 +105,23 @@
       
       <h3 id="Docker引擎的组成部分："><a href="#Docker引擎的组成部分：" class="headerlink" title="Docker引擎的组成部分："></a>Docker引擎的组成部分：</h3><ol>
 <li><strong>Docker Client</strong>，即Docker客户端程序，包含常用的客户端命令。</li>
-<li><strong>Docker Daemon</strong>，Docker守护进程（何为守护进程？即一种在多任务的电脑操作系统中，在后台执行的程序，其运行不受终端控制，例如网络服务进程）。</li>
-<li><strong>containerd</strong>，containerd的主要任务是容器的生命周期管理，比如start、stop、pause、rm等。</li>
+<li><strong>Docker Daemon</strong>，Docker守护进程（何为守护进程？即一种在多任务的电脑操作系统中，在后台执行的程序，其运行不受终端控制，例如网络服务进程）。<strong>Docker Daemon</strong>除了实现<em>Docker API（基于HTTP），还包括镜像管理、身份认证、安全特性、核心网络以及卷等。</em></li>
+<li><strong>containerd</strong>，containerd的主要任务是容器的生命周期管理，比如start、stop、pause、rm等。containerd在linux和windows中以daemon的方式运行，在Docker引擎中containerd位于daemon和runc所在OCI层之间。containerd设计初期是轻量级的小工具，主要用于容器的生命周期管理，随着时间推移，containerd加入了更多的功能诸如镜像管理。</li>
 <li><strong>runc</strong>，runc生来只有个一个作用—-创建容器，实际上它就是一个独立的容器运行时工具。</li>
+<li><strong>shim</strong>，是实现无daemon容器不可或缺的工具。runc在启动容器后会退出，而此时<strong>containerd-shim将会称为容器进程的父进程</strong>。shim的职责包括：<ol>
+<li>保持所有STDIN和STDOUT流是开启状态，从而当daemon重启的时候，容器不会因为管道的关闭而终止。</li>
+<li>将容器的退出状态反馈给daemon。</li>
+</ol>
+</li>
 </ol>
 <p><img src="/images/docker/Docker1.png" alt="引擎框架" title="引擎框架"></p>
+<h3 id="Docker如何启动一个新的容器"><a href="#Docker如何启动一个新的容器" class="headerlink" title="Docker如何启动一个新的容器"></a>Docker如何启动一个新的容器</h3><ol>
+<li><strong>docker containerd run</strong> 可以用于启动一个新的容器。当在<strong>Docker Client</strong>中执行如上命令时，<strong>Docker Client</strong>会将其转化为合适的API格式，并将其发送到正确的API端点。API是在<strong>Docker Daemon</strong>中实现的。</li>
+<li><strong>Docker Daemon</strong>中接收新从<strong>Docker Client</strong>中的创建新容器的命令，它会向containerd发起调用。<strong>Docker Daemon</strong>使用的一种CRUD(Create, Retrieve, Update, Delete)风格的API，并通过gRPC（google开源RPC）与containerd进行通信。</li>
+<li><strong>containerd</strong>虽然名为容器，但是它并不负责创建容器，而是指挥<strong>runc</strong>去做。<strong>containerd</strong>将Docker镜像转化为OCI bundle，并让runc基于此创建容器。</li>
+<li><strong>runc</strong>与操作系统内核进行通信，基于所有创建容器必要的工具诸如Namespace、<strong>CGroup</strong>（CGroup 是 Control Groups 的缩写，是 Linux 内核提供的一种可以限制、记录、隔离进程组 (process groups) 所使用的物理资源如cpu、memory、i/o 的机制）等来创建容器。容器作为runc的子进程启动，启动完容器后，runc工具将退出。</li>
+</ol>
+<p><em>由此可以看出，docker容器的运行和docker daemon是完全解耦，因此docker可以称为无守护进程的容器（daemonless container）</em></p>
 
       
       <!-- reward -->
